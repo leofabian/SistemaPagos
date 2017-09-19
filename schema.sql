@@ -16,118 +16,212 @@ create table user(
 
 insert into user(name,lastname,email,password,is_active,is_admin,created_at) value ("Administrador", "","admin","90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad",1,1,NOW());
 
-create table category(
-	id int not null auto_increment primary key,
-	image varchar(255),
-	name varchar(50),
-	description text,
-	created_at datetime
-);
-
-create table product(
-	id int not null auto_increment primary key,
-	image varchar(255),
-	barcode varchar(50),
-	name varchar(50),
-	description text,
-	inventary_min int default 10,
-	price_in float,
-	price_out float,
-	unit varchar(255),
-	presentation varchar(255),
-	user_id int,
-	category_id int,
-	created_at datetime,
-	is_active boolean default 1,
-	foreign key (category_id) references category(id),
-	foreign key (user_id) references user(id)
-);
-
-/*
-person kind
-1.- Client
-2.- Provider
-*/
-create table person(
-	id int not null auto_increment primary key,
-	image varchar(255),
-	name varchar(255),
-	lastname varchar(50),
-	company varchar(50),
-	address1 varchar(50),
-	address2 varchar(50),
-	phone1 varchar(50),
-	phone2 varchar(50),
-	email1 varchar(50),
-	email2 varchar(50),
-	kind int,
-	created_at datetime
-);
+CREATE TABLE `PLA_DSS_DESCUENTOS` (
+  `DSS_CODCIA` int(11) NOT NULL,
+  `DSS_CODTPL` smallint(6) NOT NULL,
+  `DSS_CODPLA` int(11) NOT NULL,
+  `DSS_CODEMP` int(11) NOT NULL,
+  `DSS_CODTDC` smallint(6) NOT NULL,
+  `DSS_VALOR` float NOT NULL,
+  `DSS_VALOR_PATRONAL` float NOT NULL,
+  `DSS_INGRESO_AFECTO` float NOT NULL,
+  `DSS_DIAS_DESCUENTO` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-create table operation_type(
-	id int not null auto_increment primary key,
-	name varchar(50)
-);
 
-insert into operation_type (name) value ("entrada");
-insert into operation_type (name) value ("salida");
+CREATE TABLE `PLA_EMP_EMPLEADO` (
+  `EMP_CODCIA` int not null auto_increment primary key,
+  `EMP_CODIGO` int(11) NOT NULL,
+  `EMP_CODTIP` smallint(6) DEFAULT NULL,
+  `EMP_DIRECCION` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_APELLIDOS_NOMBRES` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_TELEFONO` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_LUGAR_NAC` smallint(6) DEFAULT NULL,
+  `EMP_NACIONALIDAD` smallint(6) DEFAULT NULL,
+  `EMP_FECHA_NAC` datetime DEFAULT NULL,
+  `EMP_SEXO` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_PROFESION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_ESTADO` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_ESTADO_CIVIL` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_FECHA_INGRESO` datetime DEFAULT NULL,
+  `EMP_FECHA_RETIRO` datetime DEFAULT NULL,
+  `EMP_CODTPL` smallint(6) DEFAULT NULL,
+  `EMP_TIPO_CONTRATO` smallint(6) DEFAULT NULL,
+  `EMP_FORMA_PAGO` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_CODPLZ` int(11) DEFAULT NULL,
+  `EMP_EXP_SALARIO` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMP_SALARIO` float DEFAULT NULL,
+  `EMP_EDAD` smallint(6) DEFAULT NULL,
+  `EMP_EMAIL` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-create table box(
-	id int not null auto_increment primary key,
-	created_at datetime
-);
 
 
-create table sell(
-	id int not null auto_increment primary key,
-	person_id int ,
-	user_id int ,
-	operation_type_id int default 2,
-	box_id int,
+CREATE TABLE `PLA_INN_INGRESOS` (
+  `INN_CODCIA` int(11) NOT NULL,
+  `INN_CODTPL` smallint(6) NOT NULL,
+  `INN_CODPLA` int(11) NOT NULL,
+  `INN_CODEMP` int(11) NOT NULL,
+  `INN_CODTIG` smallint(6) NOT NULL,
+  `INN_VALOR` float NOT NULL,
+  `INN_DIAS` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-	total double,
-	cash double,
-	discount double,
 
-	foreign key (box_id) references box(id),
-	foreign key (operation_type_id) references operation_type(id),
-	foreign key (user_id) references user(id),
-	foreign key (person_id) references person(id),
-	created_at datetime
-);
+CREATE TABLE `PLA_LIE_LIQUIDACION_EMP` (
+  `LIE_CODCIA` int(11) NOT NULL,
+  `LIE_CODEMP` int(11) NOT NULL,
+  `LIE_FECHA_INGRESO` datetime NOT NULL,
+  `LIE_FECHA_RETIRO` datetime NOT NULL,
+  `LIE_OBSERVACION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LIE_CODTPL` smallint(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-create table operation(
-	id int not null auto_increment primary key,
-	product_id int,
-	q float,
-	operation_type_id int,
-	sell_id int,
-	created_at datetime,
-	foreign key (product_id) references product(id),
-	foreign key (operation_type_id) references operation_type(id),
-	foreign key (sell_id) references sell(id)
-);
 
-/*
-configuration kind
-1.- Boolean
-2.- Text
-3.- Number
-*/
-create table configuration(
-	id int not null auto_increment primary key,
-	short varchar(255) unique,
-	name varchar(255) unique,
-	kind int,
-	val varchar(255)
-);
-insert into configuration(short,name,kind,val) value("title","Titulo del Sistema",2,"Inventio Lite");
-insert into configuration(short,name,kind,val) value("use_image_product","Utilizar Imagenes en los productos",1,0);
-insert into configuration(short,name,kind,val) value("active_clients","Activar clientes",1,0);
-insert into configuration(short,name,kind,val) value("active_providers","Activar proveedores",1,0);
-insert into configuration(short,name,kind,val) value("active_categories","Activar categorias",1,0);
-insert into configuration(short,name,kind,val) value("active_reports_word","Activar reportes en Word",1,0);
-insert into configuration(short,name,kind,val) value("active_reports_excel","Activar reportes en Excel",1,0);
-insert into configuration(short,name,kind,val) value("active_reports_pdf","Activar reportes en PDF",1,0);
 
+
+CREATE TABLE `PLA_PPL_PARAM_PLANI` (
+  `PPL_CODCIA` int(11) NOT NULL,
+  `PPL_CODTPL` smallint(6) NOT NULL,
+  `PPL_CODPLA` int(11) NOT NULL,
+  `PPL_FECHA_INI` datetime NOT NULL,
+  `PPL_FECHA_FIN` datetime NOT NULL,
+  `PPL_FECHA_PAGO` datetime NOT NULL,
+  `PPL_ESTADO` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `PPL_FRECUENCIA` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `PPL_MES_CONT` smallint(6) NOT NULL,
+  `PPL_ANIO_CONT` smallint(6) DEFAULT NULL,
+  `PPL_FECHA_CORTE` datetime DEFAULT NULL,
+  `ppl_codpla_ini` int(11) DEFAULT NULL,
+  `ppl_codpla_fin` int(11) DEFAULT NULL,
+  `ppl_comentario` varchar(8000) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `PLA_REN_RENTA` (
+  `REN_CODEMP` int(11) NOT NULL,
+  `REN_MES_CONT` smallint(6) NOT NULL,
+  `REN_ANIO_CONT` smallint(6) NOT NULL,
+  `REN_NIT` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `REN_NOMBRE_NIT` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `REN_INGRESO_AFECTO` float DEFAULT NULL,
+  `REN_DESCUENTO` float DEFAULT NULL,
+  `REN_CODCIA` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `PLA_TDC_TIPO_DESCUENTO` (
+  `TDC_CODCIA` int(11) NOT NULL,
+  `TDC_CODIGO` smallint(6) NOT NULL,
+  `TDC_DESCRIPCION` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+CREATE TABLE `PLA_TIG_TIPO_INGRESO` (
+  `TIG_CODCIA` int(11) NOT NULL,
+  `TIG_CODIGO` smallint(6) NOT NULL,
+  `TIG_DESCRIPCION` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+CREATE TABLE `PLA_TPL_TIPO_PLANILLA` (
+  `TPL_CODCIA` int(11) NOT NULL,
+  `TPL_CODIGO` smallint(6) NOT NULL,
+  `TPL_DESCRIPCION` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `TPL_TIPO` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `TPL_APLICACION` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `TPL_TOTAL_PERIODOS` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+CREATE TABLE `PLA_VAC_VACACION` (
+  `VAC_CODCIA` int(11) NOT NULL,
+  `VAC_CODEMP` int(11) NOT NULL,
+  `VAC_PERIODO` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
+  `VAC_DESDE` datetime NOT NULL,
+  `VAC_HASTA` datetime NOT NULL,
+  `VAC_PERIODO_ANT` decimal(10,2) NOT NULL,
+  `VAC_DIAS` decimal(10,2) NOT NULL,
+  `VAC_GOZADOS` decimal(10,2) NOT NULL,
+  `VAC_FECHA_PAGO_PRIMA` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+ALTER TABLE `PLA_DSS_DESCUENTOS`
+  ADD PRIMARY KEY (`DSS_CODCIA`,`DSS_CODTPL`,`DSS_CODPLA`,`DSS_CODEMP`,`DSS_CODTDC`);
+
+--
+-- Indexes for table `PLA_EMP_EMPLEADO`
+--
+ALTER TABLE `PLA_EMP_EMPLEADO`
+  ADD PRIMARY KEY (`EMP_CODIGO`);
+
+--
+-- Indexes for table `PLA_INN_INGRESOS`
+--
+ALTER TABLE `PLA_INN_INGRESOS`
+  ADD PRIMARY KEY (`INN_CODCIA`,`INN_CODTPL`,`INN_CODPLA`,`INN_CODEMP`,`INN_CODTIG`);
+
+--
+-- Indexes for table `PLA_LIE_LIQUIDACION_EMP`
+--
+ALTER TABLE `PLA_LIE_LIQUIDACION_EMP`
+  ADD PRIMARY KEY (`LIE_CODEMP`,`LIE_FECHA_RETIRO`);
+
+--
+-- Indexes for table `PLA_PPL_PARAM_PLANI`
+--
+ALTER TABLE `PLA_PPL_PARAM_PLANI`
+  ADD PRIMARY KEY (`PPL_CODCIA`,`PPL_CODTPL`,`PPL_CODPLA`);
+
+--
+-- Indexes for table `PLA_REN_RENTA`
+--
+ALTER TABLE `PLA_REN_RENTA`
+  ADD PRIMARY KEY (`REN_CODEMP`,`REN_MES_CONT`,`REN_ANIO_CONT`);
+
+--
+-- Indexes for table `PLA_TDC_TIPO_DESCUENTO`
+--
+ALTER TABLE `PLA_TDC_TIPO_DESCUENTO`
+  ADD PRIMARY KEY (`TDC_CODCIA`,`TDC_CODIGO`);
+
+--
+-- Indexes for table `PLA_TIG_TIPO_INGRESO`
+--
+ALTER TABLE `PLA_TIG_TIPO_INGRESO`
+  ADD PRIMARY KEY (`TIG_CODCIA`,`TIG_CODIGO`);
+
+--
+-- Indexes for table `PLA_TPL_TIPO_PLANILLA`
+--
+ALTER TABLE `PLA_TPL_TIPO_PLANILLA`
+  ADD PRIMARY KEY (`TPL_CODCIA`,`TPL_CODIGO`);
+
+--
+-- Indexes for table `PLA_VAC_VACACION`
+--
+ALTER TABLE `PLA_VAC_VACACION`
+  ADD PRIMARY KEY (`VAC_CODCIA`,`VAC_CODEMP`,`VAC_PERIODO`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `PLA_REN_RENTA`
+--
+ALTER TABLE `PLA_REN_RENTA`
+  ADD CONSTRAINT `PLA_REN_RENTA_ibfk_1` FOREIGN KEY (`REN_CODEMP`) REFERENCES `PLA_EMP_EMPLEADO` (`EMP_CODIGO`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
