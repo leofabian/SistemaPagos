@@ -51,7 +51,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
 ?>
           <ul class="nav navbar-nav side-nav">
           <li><a href="index.php?view=home"><i class="fa fa-home"></i> Inicio</a></li>
-          <li><a href="index.php?view=clients"><i class="fa fa-smile-o"></i> Empleados </a></li>
+          <li><a href="index.php?view=empleado"><i class="fa fa-smile-o"></i> Empleados </a></li>
           <li><a href="index.php?view=box"><i class="glyphicon glyphicon-usd"></i> Pagar</a></li>
          <!-- <li><a href="index.php?view=sell"><i class="fa fa-usd"></i> Vender</a></li>
           <li><a href="index.php?view=sells"><i class="fa fa-shopping-cart"></i> Ventas</a></li>

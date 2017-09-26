@@ -4,25 +4,34 @@
   <br>
     <form class="form-horizontal" method="post" id="agregarempleado" action="index.php?view=agregarempleado" role="form">
 
-
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
-    <div class="col-md-6">
-      <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Apellido">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombres*</label>
     <div class="col-md-6">
       <input type="text" name="nombre" required class="form-control" id="nombre" placeholder="Nombre">
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Apellidos*</label>
+    <div class="col-md-6">
+      <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Apellido">
+    </div>
+  </div>
+  
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
     <div class="col-md-6">
       <input type="text" name="direccion" class="form-control" required id="direccion" placeholder="Direccion">
     </div>
   </div>
+
+   <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Teléfono*</label>
+    <div class="col-md-6">
+      <input type="text" name="telef1" class="form-control" id="telef1" placeholder="Telefono">
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Genero*</label>
     <div class="col-md-6">
@@ -32,26 +41,50 @@
           <option>Masculino</option>          
         </select>
     </div>
-  </div>
+  </div> 
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Fecha Nacimeinto*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">DUI*</label>
     <div class="col-md-6">
-      <input type="date" name="fechanac" class="form-control" id="fechanac" placeholder="Fecha">
+      <input type="text" name="dui" class="form-control" id="dui" placeholder="Dui">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Teléfono*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">NIT*</label>
     <div class="col-md-6">
-      <input type="text" name="telef1" class="form-control" id="telef1" placeholder="Telefono">
+      <input type="text" name="nit" class="form-control" id="nit" placeholder="Nit">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Departamento*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Est Civil*</label>
     <div class="col-md-6">
-      <select name="departamento" class="form-control" id="departamento" placeholder="Departamento" tabindex="10">
+      <select name="estadocivil" class="form-control" id="estadocivil" placeholder="Estado Civil">
+          <option></option>
+          <option>Soltero</option>
+          <option>Casado</option>
+          <option>Acompañado</option> 
+          <option>Divorciado</option>           
+        </select>
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Tipo Contrato*</label>
+    <div class="col-md-6">
+      <select name="tipocontrato" class="form-control" id="tipocontrato" placeholder="Contrato">
+          <option></option>
+          <option>Contrato fijo</option>
+          <option>Contrato temporal</option>          
+        </select>
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Cargo*</label>
+    <div class="col-md-6">
+      <select name="cargo" class="form-control" id="cargo" placeholder="Cargo o área" tabindex="10">
         <option></option>
           <option>Administración</option>
           <option>Ventas</option>
@@ -63,17 +96,35 @@
     </div>
   </div>
 
-<div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Posición*</label>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Salario*</label>
     <div class="col-md-6">
-      <input type="text" name="posicion" class="form-control" id="posicion" placeholder="Posicion">
+      <input type="text" name="salario" class="form-control" id="salario" placeholder="salario">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Salario*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Forma de pago*</label>
     <div class="col-md-6">
-      <input type="text" name="salario" class="form-control" id="salario" placeholder="$$">
+      <select name="formapago" class="form-control" id="formapago" placeholder="Forma de pago" tabindex="10">
+        <option></option>
+          <option>Tranferencia Bancaria</option>
+          <option>Efectivo</option>   
+        </select>
+    </div>
+  </div>
+
+<div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Fecha Nacimiento*</label>
+    <div class="col-md-6">
+      <input type="date" name="fechanac" class="form-control" id="fechanac" placeholder="Fecha">
+    </div>
+  </div>
+
+<div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
+    <div class="col-md-6">
+      <input type="text" name="mail" class="form-control" id="mail" placeholder="mail">
     </div>
   </div>
 
