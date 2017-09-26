@@ -1,27 +1,27 @@
 <?php
 class EmpData {
-	public static $tablename = "EMP_EMPLEADO";
+	public static $tablename = "emp_empleado";
 
 	public function Empdata(){
 		$this->nombre = "";
 		$this->apellido = "";
 		$this->direccion = "";
-		$this->telef1 = "";
-		$this->genero = "";
+		$this->telefono = "";
+		$this->sexo = "";
 		$this->dui = "";
 		$this->nit = "";
-		$this->estadocivil = "";
-		$this->tipocontrato = "";
+		$this->estado_civil = "";
+		$this->tipo_contrato = "";
 		$this->cargo = "";
 		$this->salario = "";
 		$this->formapago = "";
-		$this->fechanac = "";	
-		$this->mail = "";	
+		$this->fecha_nac = "";	
+		$this->email = "";	
 	}
 
 	public function add(){
-		$sql = "insert into EMP_EMPLEADO (nombre,apellido,direccion,telef1,genero,dui,nit,estadocivil,tipocontrato,cargo,salario,formapago,fechanac, mail) ";
-		$sql .= "value (\"$this->nombre\",\"$this->apellido\",\"$this->direccion\",\"$this->telef1\",\"$this->genero\",\"$this->dui\",\"$this->nit\",\"$this->estadocivil\",\"$this->tipocontrato\",\"$this->cargo\",\"$this->salario\",\"$this->formapago\",\"$this->fechanac\",\"$this->posicion\",$this->mail)";
+		$sql = "insert into emp_empleado (nombre,apellido,direccion,telefono,sexo,dui,nit,estado_civil,tipo_contrato,cargo,salario,formapago,fecha_nac,email) ";
+		$sql .= "value (\"$this->nombre\",\"$this->apellido\",\"$this->direccion\",\"$this->telefono\",\"$this->sexo\",\"$this->dui\",\"$this->nit\",\"$this->estado_civil\",\"$this->tipo_contrato\",\"$this->cargo\",\"$this->salario\",\"$this->formapago\",\"$this->fecha_nac\",$this->email)";
 		Executor::doit($sql);
 	}
 

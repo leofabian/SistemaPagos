@@ -28,14 +28,14 @@
    <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Teléfono*</label>
     <div class="col-md-6">
-      <input type="text" name="telef1" class="form-control" id="telef1" placeholder="Telefono">
+      <input type="number" name="telefono" class="form-control" id="telefono" placeholder="Telefono">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Genero*</label>
     <div class="col-md-6">
-      <select name="genero" class="form-control" id="genero" placeholder="Selleccione Género">
+      <select name="sexo" class="form-control" id="sexo" placeholder="Selleccione Género">
           <option></option>
           <option>Femenino</option>
           <option>Masculino</option>          
@@ -60,7 +60,7 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Est Civil*</label>
     <div class="col-md-6">
-      <select name="estadocivil" class="form-control" id="estadocivil" placeholder="Estado Civil">
+      <select name="estado_civil" class="form-control" id="estado_civil" placeholder="Estado Civil">
           <option></option>
           <option>Soltero</option>
           <option>Casado</option>
@@ -73,7 +73,7 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Tipo Contrato*</label>
     <div class="col-md-6">
-      <select name="tipocontrato" class="form-control" id="tipocontrato" placeholder="Contrato">
+      <select name="tipo_contrato" class="form-control" id="tipo_contrato" placeholder="Contrato">
           <option></option>
           <option>Contrato fijo</option>
           <option>Contrato temporal</option>          
@@ -99,7 +99,7 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Salario*</label>
     <div class="col-md-6">
-      <input type="text" name="salario" class="form-control" id="salario" placeholder="salario">
+      <input type="number" name="salario" class="form-control" id="salario" placeholder="salario">
     </div>
   </div>
 
@@ -117,14 +117,14 @@
 <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Fecha Nacimiento*</label>
     <div class="col-md-6">
-      <input type="date" name="fechanac" class="form-control" id="fechanac" placeholder="Fecha">
+      <input type="date" name="fecha_nac" class="form-control" id="fecha_nac" placeholder="Fecha">
     </div>
   </div>
 
 <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
-      <input type="text" name="mail" class="form-control" id="mail" placeholder="mail">
+      <input type="text" name="email" class="form-control" id="email" placeholder="email">
     </div>
   </div>
 

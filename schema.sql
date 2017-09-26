@@ -50,8 +50,7 @@ create table EMP_EMPLEADO(
 	salario decimal(10,2),
 	formapago varchar(20),
 	fecha_nac date,
-	email varchar(30),
-	creado_el datetime
+	email varchar(30)
 );
 
 
