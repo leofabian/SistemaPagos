@@ -21,9 +21,12 @@ class EmpData {
 
 	public function add(){
 		$sql = "insert into emp_empleado (nombre,apellido,direccion,telefono,sexo,dui,nit,estado_civil,tipo_contrato,cargo,salario,formapago,fecha_nac,email) ";
-		$sql .= "value (\"$this->nombre\",\"$this->apellido\",\"$this->direccion\",\"$this->telefono\",\"$this->sexo\",\"$this->dui\",\"$this->nit\",\"$this->estado_civil\",\"$this->tipo_contrato\",\"$this->cargo\",\"$this->salario\",\"$this->formapago\",\"$this->fecha_nac\",$this->email)";
+		$sql .= "value (\"$this->nombre\",\"$this->apellido\",\"$this->direccion\",\"$this->telefono\",\"$this->sexo\",\"$this->dui\",\"$this->nit\",\"$this->estado_civil\",\"$this->tipo_contrato\",\"$this->cargo\",\"$this->salario\",\"$this->formapago\",\"$this->fecha_nac\",\"$this->email\")";
 		Executor::doit($sql);
 	}
+
+
+	// INSERT INTO `emp_empleado` (`id`, `nombre`, `apellido`, `direccion`, `telefono`, `sexo`, `dui`, `nit`, `estado_civil`, `tipo_contrato`, `cargo`, `salario`, `formapago`, `fecha_nac`, `email`) VALUES (NULL, 'leo', 'fab', 'aklklk', '1979', 'Masculino', '919', '99', 'Soltero', 'Contrato Fijo', 'Administración', '5000', 'Efectivo', '2017-09-18', 'nelson@gmail.com')
 
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
@@ -36,7 +39,7 @@ class EmpData {
 
 
 	public function update(){
-		$sql = "update ".self::$tablename." set apellido=\"$this->apellido\",nombre=\"$this->nombre\",direccion=\"$this->direccion\",genero=\"$this->genero\",telef1=\"$this->telef1\",fechanac=\"$this->fechanac\",departamento=\"$this->departamento\",posicion=\"$this->posicion\",salario=\"$this->salario\" where id=$this->id";
+		$sql = "update ".self::$tablename." set nombre=\"$this->nombre\",apellido=\"$this->apellido\",direccion=\"$this->direccion\",telefono=\"$this->telefono\",sexo=\"$this->sexo\",dui=\"$this->dui\",nit=\"$this->nit\",estado_civil=\"$this->estado_civil\",tipo_contrato=\"$this->tipo_contrato\",tipo_contrato=\"$this->tipo_contrato\",cargo=\"$this->cargo\",salario=\"$this->salario\",formapago=\"$this->formapago\",fecha_nac=\"$this->fecha_nac\",email=\"$this->email\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -47,15 +50,20 @@ class EmpData {
 		$data = new EmpData();
 		while($r = $query[0]->fetch_array()){
 			$data->id = $r['id'];
-			$data->apellido = $r['apellido'];
 			$data->nombre = $r['nombre'];
+			$data->apellido = $r['apellido'];
 			$data->direccion = $r['direccion'];
-			$data->genero = $r['genero'];
-			$data->telef1 = $r['telef1'];
-			$data->fechanac = $r['fechanac'];
-			$data->departamento = $r['departamento'];
-			$data->posicion = $r['posicion'];
-			$data->salario = $r['salario'];			
+			$data->telefono = $r['telefono'];
+			$data->sexo = $r['sexo'];
+			$data->dui = $r['dui'];
+			$data->nit = $r['nit'];
+			$data->estado_civil = $r['estado_civil'];
+			$data->tipo_contrato = $r['tipo_contrato'];
+			$data->cargo = $r['cargo'];
+			$data->salario = $r['salario'];
+			$data->formapago = $r['formapago'];		
+			$data->fecha_nac = $r['fecha_nac'];
+			$data->email = $r['email'];	
 			$found = $data;
 			break;
 		}
@@ -71,15 +79,20 @@ class EmpData {
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new EmpData();
 			$array[$cnt]->id = $r['id'];
-			$array[$cnt]->apellido = $r['apellido'];
 			$array[$cnt]->nombre = $r['nombre'];
+			$array[$cnt]->apellido = $r['apellido'];
 			$array[$cnt]->direccion = $r['direccion'];
-			$array[$cnt]->genero = $r['genero'];
-			$array[$cnt]->telef1 = $r['telef1'];
-			$array[$cnt]->fechanac = $r['fechanac'];
-			$array[$cnt]->departamento = $r['departamento'];
-			$array[$cnt]->posicion = $r['posicion'];
+			$array[$cnt]->telefono = $r['telefono'];
+			$array[$cnt]->sexo = $r['sexo'];
+			$array[$cnt]->dui = $r['dui'];
+			$array[$cnt]->nit = $r['nit'];
+			$array[$cnt]->estado_civil = $r['estado_civil'];
+			$array[$cnt]->tipo_contrato = $r['tipo_contrato'];
+			$array[$cnt]->cargo = $r['cargo'];
 			$array[$cnt]->salario = $r['salario'];
+			$array[$cnt]->formapago = $r['formapago'];
+			$array[$cnt]->fecha_nac = $r['fecha_nac'];
+			$array[$cnt]->email = $r['email'];
 			$cnt++;
 		}
 		return $array;

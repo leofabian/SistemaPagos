@@ -52,14 +52,14 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <ul class="nav navbar-nav side-nav">
           <li><a href="index.php?view=home"><i class="fa fa-home"></i> Inicio</a></li>
           <li><a href="index.php?view=empleado"><i class="fa fa-smile-o"></i> Empleados </a></li>
-          <li><a href="index.php?view=box"><i class="glyphicon glyphicon-usd"></i> Pagar</a></li>
+          <li><a href="index.php?view=pagar"><i class="glyphicon glyphicon-usd"></i> Realizar Pago</a></li>
+          <li><a href="index.php?view=aguinaldo"><i class="glyphicon glyphicon-usd"></i> Pago Aguinaldos </a></li>
          <!-- <li><a href="index.php?view=sell"><i class="fa fa-usd"></i> Vender</a></li>
           <li><a href="index.php?view=sells"><i class="fa fa-shopping-cart"></i> Ventas</a></li>
           <li><a href="index.php?view=box"><i class="fa fa-archive"></i> Caja</a></li>
           <li><a href="index.php?view=products"><i class="fa fa-glass"></i> Productos</a></li>
           <li><a href="index.php?view=categories"><i class="fa fa-th-list"></i> Categorias </a></li>
           <li><a href="index.php?view=clients"><i class="fa fa-smile-o"></i> Clientes </a></li>-->
-          <li><a href="index.php?view=providers"><i class="fa fa-truck"></i> Proveedores</a></li>
            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Inventario <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -94,22 +94,13 @@ if( isset($_SESSION["user_id"]) && $_SESSION["user_id"]!=""){
   }?>
           <ul class="nav navbar-nav navbar-right navbar-user">
          
-   <li class="dropdown user-dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <b>EVILNAPSIS </b><b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="http://evilnapsis.com/">Ver sitio</a></li>
-          <li><a href="http://evilnapsis.com/product/inventio-lite-commercial/">Comprar Inventio Lite</a></li>
-          <li><a href="http://evilnapsis.com/product/basic-support/">Soporte</a></li>
-        </ul>
-        </li>
+
             <li class="dropdown user-dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <?php echo $user; ?> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="index.php?view=configuration">Configuracion</a></li>
+          <!-- <li><a href="index.php?view=configuration">Configuracion</a></li> -->
           <li><a href="logout.php">Salir</a></li>
         </ul>
         </li>

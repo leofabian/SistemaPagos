@@ -16,7 +16,6 @@ if(count($_POST)>0){
 	$empleado->formapago = $_POST["formapago"];	
 	$empleado->fecha_nac = $_POST["fecha_nac"];	
 	$empleado->email = $_POST["email"];	
-	$empleado->salario = $_POST["salario"];	
 	$empleado->add();
 
 print "<script>window.location='index.php?view=empleado';</script>";

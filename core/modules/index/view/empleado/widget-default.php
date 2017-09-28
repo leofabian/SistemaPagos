@@ -24,11 +24,11 @@
 				<thead>
 				
 					<th>Apellido</th>
-					<th>Nombre</th>					
-					<th>Género</th>
-					<th>Tel</th>
-					<th>F-Nacim</th>
-					<th>Cargo</th>
+					<th>Nombre</th>										
+					<th>Teléfono</th>
+					<th>#Dui</th>
+					<th>#Nit</th>
+					<th>Forma de Pago</th>
 					<th>Salario</th>					
 					<th></th>
 				</thead>
@@ -37,12 +37,11 @@
 					?>
 					<tr>
 						<td><?php echo $empleado->apellido; ?></td>
-						<td><?php echo $empleado->nombre; ?></td>
-						<td><?php echo $empleado->genero; ?></td>						
-						<td><?php echo $empleado->telef1; ?></td>
-						<td><?php echo $empleado->fechanac; ?></td>
-						<td><?php echo $empleado->departamento; ?></td>
-						<td><?php echo $empleado->posicion; ?></td>
+						<td><?php echo $empleado->nombre; ?></td>												
+						<td><?php echo $empleado->telefono; ?></td>
+						<td><?php echo $empleado->dui; ?></td>
+						<td><?php echo $empleado->nit; ?></td>	
+						<td><?php echo $empleado->formapago; ?></td>					
 						<td><?php echo $empleado->salario; ?></td>
 						<td style="width:130px;">
 							<a href="index.php?view=editarempleado&id=<?php echo $empleado->id;?>" class="btn btn-warning btn-xs">Editar</a>
