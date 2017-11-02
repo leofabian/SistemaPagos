@@ -27,7 +27,6 @@ class EmpData {
 
 
 	// INSERT INTO `emp_empleado` (`id`, `nombre`, `apellido`, `direccion`, `telefono`, `sexo`, `dui`, `nit`, `estado_civil`, `tipo_contrato`, `cargo`, `salario`, `formapago`, `fecha_nac`, `email`) VALUES (NULL, 'leo', 'fab', 'aklklk', '1979', 'Masculino', '919', '99', 'Soltero', 'Contrato Fijo', 'Administración', '5000', 'Efectivo', '2017-09-18', 'nelson@gmail.com')
-
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);

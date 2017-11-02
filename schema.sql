@@ -29,9 +29,7 @@ create table DESCUENTOS(
 
 create table EMP_AREA(
 	id int not null auto_increment primary key,
-	nombre varchar(50),
-	cargo text,
-	creado_el datetime
+	nombre varchar(50)
 );
 
 
@@ -64,8 +62,7 @@ CREATE TABLE pagosempleado (
   adelantos decimal(10,2) unsigned DEFAULT '0.00',
   afp decimal(10,2) unsigned NOT NULL DEFAULT '0.06',
   seguro decimal(10,2) unsigned NOT NULL DEFAULT '0.03',
-  creado_el datetime
-  
+  creado_el datetime 
 );
 
 create table PLA_AGUINALDO(

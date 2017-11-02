@@ -54,30 +54,10 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=empleado"><i class="fa fa-smile-o"></i> Empleados </a></li>
           <li><a href="index.php?view=pagar"><i class="glyphicon glyphicon-usd"></i> Realizar Pago</a></li>
           <li><a href="index.php?view=aguinaldo"><i class="glyphicon glyphicon-usd"></i> Pago Aguinaldos </a></li>
-         <!-- <li><a href="index.php?view=sell"><i class="fa fa-usd"></i> Vender</a></li>
-          <li><a href="index.php?view=sells"><i class="fa fa-shopping-cart"></i> Ventas</a></li>
-          <li><a href="index.php?view=box"><i class="fa fa-archive"></i> Caja</a></li>
-          <li><a href="index.php?view=products"><i class="fa fa-glass"></i> Productos</a></li>
-          <li><a href="index.php?view=categories"><i class="fa fa-th-list"></i> Categorias </a></li>
-          <li><a href="index.php?view=clients"><i class="fa fa-smile-o"></i> Clientes </a></li>-->
-           <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Inventario <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-          <li><a href="index.php?view=inventary"><i class="fa fa-area-chart"></i> Inventario</a></li>
-          <li><a href="index.php?view=re"><i class="fa fa-refresh"></i> Reabastecer</a></li>
-          <li><a href="index.php?view=res"><i class="fa fa-th-list"></i> Reabastecimientos</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Reportes <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="./index.php?view=sellreports">Ventas</a></li>
-                <li><a href="index.php?view=reports"> Inventario</a></li>
-              </ul>
-            </li>-->
+         
           <?php if($u->is_admin):?>
           <li><a href="index.php?view=users"><i class="fa fa-users"></i> Usuarios </a></li>
+          <li><a href="index.php?view=configuraciones"><i class="fa fa-users"></i> Configuraciones </a></li>
         <?php endif;?>
           </ul>
 <?php endif;?>->
