@@ -1,10 +1,8 @@
 <?php
 class ConfigData {
-	public static $tablename = "pla_configuraciones";
+	public static $tablename = "configurar";
 
 	public function ConfigData(){
-
-		//$this->id = "";
 		$this->isss = "";
 		$this->afp = "";		
 	}
@@ -20,7 +18,7 @@ class ConfigData {
 		$query = Executor::doit($sql);
 		$found = null;
 		$data = new ConfigData();
-		while($r = $query[1]->fetch_array()){
+		while($r = $query[0]->fetch_array()){
 			$data->id = $r['id'];
 			$data->isss = $r['isss'];
 			$data->afp = $r['afp'];
@@ -28,6 +26,23 @@ class ConfigData {
 			break;
 		}
 		return $found;
+	}
+
+
+
+	public static function getAll(){
+		$sql = "select * from ".self::$tablename;
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new ConfigData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->isss = $r['isss'];
+			$array[$cnt]->afp = $r['afp'];
+			$cnt++;
+		}
+		return $array;
 	}
 
 }
