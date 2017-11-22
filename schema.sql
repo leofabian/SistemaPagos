@@ -93,3 +93,7 @@ CREATE TABLE PLA_CONFIGURACIONES (
   isss decimal(10,2) NOT NULL,
   afp decimal(10,2) NOT NULL
 );
+
+Create view v_empleado
+AS SELECT id, concat_ws(' ', apellido, nombre) as persona, salario
+FROM EMP_EMPLEADO;
