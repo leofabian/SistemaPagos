@@ -4,10 +4,10 @@
 			<a href="index.php?view=nuevoempleado" class="btn btn-default"><i class='fa fa-smile-o'></i> Nuevo Empleado</a>
 			<div class="btn-group pull-right">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-download"></i> Descargar <span class="caret"></span>
+					<i class="fa fa-download"></i> Reporte <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="report/clients-word.php">Word 2007 (.docx)</a></li>
+					<li><a href="report/RepEmpleados.php">Archivo PDF</a></li>
 				</ul>
 			</div>
 		</div>
