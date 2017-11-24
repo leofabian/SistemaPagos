@@ -39,7 +39,7 @@ if(!isset($_SESSION["user_id"])){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./">Pagos ASI 2 <sup><small><span class="label label-primary">BETA</span></small></sup> </a>
+          <a class="navbar-brand" href="./">Pagos ASI 2 <sup><small><span class="label label-primary">Avance #4</span></small></sup> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,7 +54,13 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=empleado"><i class="fa fa-smile-o"></i> Empleados </a></li>
           <li><a href="index.php?view=pagar"><i class="glyphicon glyphicon-usd"></i> Realizar Pago</a></li>
           <li><a href="index.php?view=aguinaldo"><i class="glyphicon glyphicon-usd"></i> Pago Aguinaldos </a></li>
-         
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Reportes <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+          <li><a href="report/RepPagos.php"><i class="fa fa-area-chart"></i> Reporte de Pagos</a></li>
+          <li><a href="report/RepEmpleados.php"><i class="fa fa-th-list"></i> Reporte de Empleados</a></li>
+              </ul>
+            </li>
           <?php if($u->is_admin):?>
           <li><a href="index.php?view=users"><i class="fa fa-users"></i> Usuarios </a></li>
           <li><a href="index.php?view=configuraciones"><i class="fa fa-users"></i> Configuraciones </a></li>

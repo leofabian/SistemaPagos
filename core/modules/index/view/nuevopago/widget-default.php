@@ -81,14 +81,14 @@ while($r=mysql_fetch_assoc($qry)){
           <label for="inputEmail1" class="col-lg-2 control-label">AFP</label>
           <div class="form-group input-group col-md-5">
           <span class="input-group-addon">$</span>
-            <input type="number" name="afp" class="form-control" id="afp" value="0.03">
+            <input type="text" name="afp" class="form-control" id="afp" value="0.03">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEmail1" class="col-lg-2 control-label">Seguro</label>
           <div class="form-group input-group col-md-5">
           <span class="input-group-addon">$</span>
-            <input type="number" name="seguro" class="form-control" id="seguro" value="0.0625">
+            <input type="text" name="seguro" class="form-control" id="seguro" value="0.0625">
           </div>
         </div>
 

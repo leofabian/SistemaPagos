@@ -2,9 +2,16 @@
 	<div class="col-md-12">
 		<div class="btn-group pull-right">
 			<a href="index.php?view=nuevopago" class="btn btn-default"><i class='glyphicon glyphicon-usd'></i> Realizar Pago</a>
-			
+			<div class="btn-group pull-right">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-download"></i> Reporte <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="report/RepPagos.php">Archivo PDF</a></li>
+				</ul>
+			</div>
 		</div>
-		<h1>PLANILLA SERVIAGRO</h1>
+		<h1>Pagos</h1>
 		<br>
 		<?php
 

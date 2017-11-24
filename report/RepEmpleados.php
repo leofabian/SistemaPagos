@@ -15,7 +15,7 @@
   $pdf->setPrintFooter(false);
   $pdf->SetMargins(20, 20, 20, false); 
   $pdf->SetAutoPageBreak(true, 20); 
-  $pdf->SetFont('Helvetica', '', 10);
+  $pdf->SetFont('helvetica', '', 10);
   $pdf->addPage();
 
   $content = '';
@@ -48,7 +48,7 @@
             <td>'.$user['telefono'].'</td>
             <td>'.$user['cargo'].'</td>
             <td>'.$user['dui'].'</td>
-            <td>S/. '.$user['salario'].'</td>
+            <td>$. '.$user['salario'].'</td>
         </tr>
   ';
   }
@@ -67,7 +67,7 @@
   $pdf->writeHTML($content, true, 0, true, 0);
 
   $pdf->lastPage();
-  $pdf->output('Reporte.pdf', 'I');
+  $pdf->output('ReporteEmpleados.pdf', 'I');
 }
 
 
@@ -79,14 +79,14 @@ if(isset($_POST['create_pdf'])){
 	$pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 	
 	$pdf->SetCreator(PDF_CREATOR);
-	$pdf->SetAuthor('Miguel Caro');
+	$pdf->SetAuthor('Leonel Fabián');
 	$pdf->SetTitle($_POST['reporte_name']);
 	
 	$pdf->setPrintHeader(false); 
 	$pdf->setPrintFooter(false);
 	$pdf->SetMargins(20, 20, 20, false); 
 	$pdf->SetAutoPageBreak(true, 20); 
-	$pdf->SetFont('Arial', '', 10);
+	$pdf->SetFont('helvetica', '', 10);
 	$pdf->addPage();
 
 	$content = '';
@@ -119,7 +119,7 @@ if(isset($_POST['create_pdf'])){
             <td>'.$user['telefono'].'</td>
             <td>'.$user['cargo'].'</td>
             <td>'.$user['dui'].'</td>
-            <td>S/. '.$user['salario'].'</td>
+            <td>$. '.$user['salario'].'</td>
         </tr>
 	';
 	}
@@ -129,7 +129,7 @@ if(isset($_POST['create_pdf'])){
 	$content .= '
 		<div class="row padding">
         	<div class="col-md-12" style="text-align:center;">
-            	<span>Pdf Creator </span><a href="http://www.redecodifica.com">By Miguel Angel</a>
+            	<span>Pdf Creator </span><a href="https://pagosasi2.000webhostapp.com">Leonel Fabián</a>
             </div>
         </div>
     	
@@ -149,7 +149,7 @@ if(isset($_POST['create_pdf'])){
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Exportar a PDF - Miguel Angel Caro Rojas</title>
+<title>Exportar a PDF</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <!-- Meta Mobil
@@ -190,7 +190,7 @@ if(isset($_POST['create_pdf'])){
             <td><?php echo $user['telefono']; ?></td>
             <td><?php echo $user['cargo']; ?></td>
             <td><?php echo $user['dui']; ?></td>
-            <td>S/. <?php echo $user['salario']; ?></td>
+            <td>$. <?php echo $user['salario']; ?></td>
           </tr>
          <?php } ?>
         </tbody>

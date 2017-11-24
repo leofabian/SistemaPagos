@@ -14,7 +14,7 @@ if(count($_POST)>0){
 	$pagosempleado->add();
 
 
-print "<script>window.location='index.php?view=planilla';</script>";
+print "<script>window.location='index.php?view=pagar';</script>";
 
 
 }
